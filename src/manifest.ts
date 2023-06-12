@@ -6,32 +6,38 @@ const manifest: Manifest.WebExtensionManifest = {
   name: pkg.displayName,
   version: pkg.version,
   description: pkg.description,
-  options_ui: {
-    page: "src/pages/options/index.html",
-  },
+  // options_ui: {
+  //   page: "src/pages/options/index.html",
+  // },
   background: {
     service_worker: "src/pages/background/index.js",
     type: "module",
   },
   action: {
     default_popup: "src/pages/popup/index.html",
-    default_icon: "icon-34.png",
+    // default_icon: "icon-34.png",
   },
-  icons: {
-    "128": "icon-128.png",
-  },
+  // icons: {
+  //   "128": "icon-128.png",
+  // },
   permissions: ["activeTab"],
   content_scripts: [
     {
-      matches: ["http://*/*", "https://*/*", "<all_urls>"],
+      matches: ["https://leetcode.com/problems/*"],
       js: ["src/pages/content/index.js"],
-      css: ["contentStyle.css"],
+      // css: ["contentStyle.css"],
     },
   ],
-  devtools_page: "src/pages/devtools/index.html",
+  // devtools_page: "src/pages/devtools/index.html",
+  // web_accessible_resources: [
+  //   {
+  //     resources: ["contentStyle.css", "icon-128.png", "icon-34.png"],
+  //     matches: [],
+  //   },
+  // ],
   web_accessible_resources: [
     {
-      resources: ["contentStyle.css", "icon-128.png", "icon-34.png"],
+      resources: ["assets/excalidraw-assets/*"],
       matches: [],
     },
   ],
