@@ -1,3 +1,5 @@
+ - ### _NOTE : Still under development ..._
+
 # LeetNotes
 
 **LeetNotes** is a Chrome Extension which enhances your LeetCode notes experience by allowing you to draw your imagination and visualize problem solutions. It also provides various additional features to track your progress, collaborate with friends, and seamlessly integrate with Obsidian for note-taking.
