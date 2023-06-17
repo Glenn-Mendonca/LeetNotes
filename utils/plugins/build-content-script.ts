@@ -18,12 +18,17 @@ try {
   const excalidrawAssets = resolve(
     __dirname,
     "../../",
-    "node_modules/@excalidraw/excalidraw/dist"
+    "node_modules/@excalidraw/excalidraw/dist/excalidraw-assets"
   );
   //fs mkdir if not exist
   if (!fs.existsSync(resolve(outDir, "assets")))
     fs.mkdirSync(resolve(outDir, "assets"));
+  // fs.copySync("src/assets/sketchbook.svg", resolve(outDir, "assets"));
   fs.copySync(excalidrawAssets, resolve(outDir, "assets", "excalidraw-assets"));
+  fs.copySync(
+    resolve(__dirname, "../../", "src/assets/img"),
+    resolve(outDir, "assets", "img")
+  );
 } catch (error) {
   colorLog("Excalidraw assets not found", "error");
   // console.log(error);

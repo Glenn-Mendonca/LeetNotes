@@ -9,7 +9,7 @@
     "url": "https://github.com/Glenn-Mendonca/LeetNotes.git"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build --watch",
     "dev": "nodemon"
   },
   "type": "module",

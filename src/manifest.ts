@@ -37,8 +37,8 @@ const manifest: Manifest.WebExtensionManifest = {
   // ],
   web_accessible_resources: [
     {
-      resources: ["assets/excalidraw-assets/*"],
-      matches: [],
+      resources: ["assets/excalidraw-assets/*", "assets/img/*",],
+      matches: ["<all_urls>"],
     },
   ],
 };
