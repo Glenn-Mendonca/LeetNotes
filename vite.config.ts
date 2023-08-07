@@ -1,8 +1,8 @@
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import makeManifest from "./utils/plugins/make-manifest";
-import buildContentScript from "./utils/plugins/build-content-script";
+import makeManifest from "./utils/plugins/manifest";
+import buildContentScript from "./utils/plugins/content-script";
 import { outputFolderName } from "./utils/constants";
 
 const root = resolve(__dirname, "src");
@@ -32,7 +32,7 @@ export default defineConfig({
       input: {
         // devtools: resolve(pagesDir, "devtools", "index.html"),
         // panel: resolve(pagesDir, "panel", "index.html"),
-        background: resolve(pagesDir, "background", "index.ts"),
+        // background: resolve(pagesDir, "background", "index.ts"),
         popup: resolve(pagesDir, "popup", "index.html"),
         // options: resolve(pagesDir, "options", "index.html"),
       },

@@ -9,10 +9,10 @@ const manifest: Manifest.WebExtensionManifest = {
   // options_ui: {
   //   page: "src/pages/options/index.html",
   // },
-  background: {
-    service_worker: "src/pages/background/index.js",
-    type: "module",
-  },
+  // background: {
+  //   service_worker: "src/pages/background/index.js",
+  //   type: "module",
+  // },
   action: {
     default_popup: "src/pages/popup/index.html",
     // default_icon: "icon-34.png",
@@ -37,7 +37,7 @@ const manifest: Manifest.WebExtensionManifest = {
   // ],
   web_accessible_resources: [
     {
-      resources: ["assets/excalidraw-assets/*", "assets/img/*",],
+      resources: ["assets/excalidraw-assets/*", "assets/img/*"],
       matches: ["<all_urls>"],
     },
   ],

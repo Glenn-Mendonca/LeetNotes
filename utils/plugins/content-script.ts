@@ -1,4 +1,3 @@
-import colorLog from "../log";
 import { PluginOption, build } from "vite";
 import { resolve } from "path";
 import fs from "fs-extra";
@@ -12,26 +11,25 @@ const packages = [
 ];
 
 const outDir = resolve(__dirname, "../../", outputFolderName);
+const excalidrawAssets = resolve(
+  __dirname,
+  "../../",
+  "node_modules/@excalidraw/excalidraw/dist/excalidraw-assets"
+);
 
-// Excalidraw assets
+// Setup Excalidraw assets
 try {
-  const excalidrawAssets = resolve(
-    __dirname,
-    "../../",
-    "node_modules/@excalidraw/excalidraw/dist/excalidraw-assets"
-  );
-  //fs mkdir if not exist
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
   if (!fs.existsSync(resolve(outDir, "assets")))
     fs.mkdirSync(resolve(outDir, "assets"));
-  // fs.copySync("src/assets/sketchbook.svg", resolve(outDir, "assets"));
   fs.copySync(excalidrawAssets, resolve(outDir, "assets", "excalidraw-assets"));
   fs.copySync(
-    resolve(__dirname, "../../", "src/assets/img"),
-    resolve(outDir, "assets", "img")
+    resolve(__dirname, "../../", "src/assets"),
+    resolve(outDir, "assets")
   );
 } catch (error) {
-  colorLog("Excalidraw assets not found", "error");
-  // console.log(error);
+  console.log("Excalidraw assets not found", "error");
+  console.log(error);
   process.exit(1);
 }
 
@@ -62,7 +60,7 @@ export default function buildContentScript(): PluginOption {
           configFile: false,
         });
       }
-      colorLog("Content code build sucessfully", "success");
+      console.log("Content code build sucessfully", "success");
     },
   };
 }
